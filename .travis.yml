@@ -28,7 +28,7 @@ jobs:
       name: "Build Images Docker" 
       script:
       - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-      - docker build -t travis-ci-build-stages-demo .
+      - docker build -t travis-ci .
       - docker images
-      - docker tag travis-ci-build-stages-demo $DOCKER_USERNAME/pelatihan-cicd-laravel1
+      - docker tag travis-ci $DOCKER_USERNAME/pelatihan-cicd-laravel1
       - docker push $DOCKER_USERNAME/pelatihan-cicd-laravel1
