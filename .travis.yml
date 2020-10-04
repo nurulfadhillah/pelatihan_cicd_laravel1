@@ -7,7 +7,7 @@ language: php
 dist: trusty
 
 php:
-  - '7.1'
+  - '7.3'
 # service yang digunakan
 services:
   - docker
@@ -28,7 +28,7 @@ jobs:
       name: "Build Images Docker" 
       script:
       - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-      - docker build -t travis-ci .
+      - docker build -t travis-ci-build-stages-demo .
       - docker images
-      - docker tag travis-ci $DOCKER_USERNAME/pelatihan-cicd-laravel1
+      - docker tag travis-ci-build-stages-demo $DOCKER_USERNAME/pelatihan-cicd-laravel1
       - docker push $DOCKER_USERNAME/pelatihan-cicd-laravel1
